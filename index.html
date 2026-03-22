@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Namtan Fashion | Surin Style</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Prompt:wght@300;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cream: #f9f7f2;
+            --charcoal: #1a1a1a;
+            --accent: #b08d57;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Prompt', sans-serif;
+            background-color: var(--cream);
+            color: var(--charcoal);
+            line-height: 1.6;
+        }
+
+        /* Language Toggle Styles */
+        .lang-switch {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            cursor: pointer;
+            font-weight: 600;
+            border: 1px solid var(--charcoal);
+        }
+
+        /* Navigation */
+        nav {
+            padding: 40px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* Sections */
+        section {
+            padding: 80px 10%;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 5rem;
+            margin-bottom: 10px;
+        }
+
+        /* Product Grid */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .product-card {
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .product-img {
+            width: 100%;
+            height: 450px;
+            background-color: #ddd;
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+
+        .product-card h3 {
+            font-size: 1.5rem;
+            margin: 10px 0;
+        }
+
+        .price {
+            color: var(--accent);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        /* Footer/Contact */
+        footer {
+            background: var(--charcoal);
+            color: white;
+            padding: 60px 10%;
+            text-align: center;
+        }
+
+        /* Thai Content Hidden by Default */
+        .lang-th { display: none; }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 3rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <button class="lang-switch" onclick="toggleLanguage()">TH / EN</button>
+
+    <nav>
+        <div class="logo">Namtan Fashion</div>
+    </nav>
+
+    <section class="hero">
+        <h1 class="lang-en">Elegance of Surin</h1>
+        <h1 class="lang-th">ความสง่างามแห่งสุรินทร์</h1>
+        <p class="lang-en">Curated style by Namtan</p>
+        <p class="lang-th">สไตล์ที่คัดสรรโดยน้ำตาล</p>
+    </section>
+
+    <section id="shop">
+        <h2 class="lang-en" style="font-size: 3rem; text-align: center;">New Arrivals</h2>
+        <h2 class="lang-th" style="font-size: 3rem; text-align: center;">สินค้ามาใหม่</h2>
+        
+        <div class="product-grid">
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?auto=format&fit=crop&w=500&q=80" alt="Silk" class="product-img">
+                <h3>Surin Silk Blazer</h3>
+                <p class="price">฿4,500</p>
+            </div>
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1581044777550-4cfa60707c03?auto=format&fit=crop&w=500&q=80" alt="Skirt" class="product-img">
+                <h3>Sunset Skirt</h3>
+                <p class="price">฿2,200</p>
+            </div>
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1535639818669-c059d2f038e6?auto=format&fit=crop&w=500&q=80" alt="Jewelry" class="product-img">
+                <h3>Gold Hoops</h3>
+                <p class="price">฿850</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" style="background: white;">
+        <h2 class="lang-en">About Namtan</h2>
+        <h2 class="lang-th">เกี่ยวกับน้ำตาล</h2>
+        <p class="lang-en" style="max-width: 700px; font-size: 1.2rem;">Namtan is a fashionista based in Surin, Thailand. She blends local heritage with modern silhouettes to create pieces that tell a story of authentic sophistication.</p>
+        <p class="lang-th" style="max-width: 700px; font-size: 1.2rem;">น้ำตาลคือแฟชั่นนิสต้าจากจังหวัดสุรินทร์ เธอผสมผสานมรดกท้องถิ่นเข้ากับรูปทรงที่ทันสมัย เพื่อสร้างสรรค์ผลงานที่บอกเล่าเรื่องราวของความหรูหราที่แท้จริง</p>
+    </section>
+
+    <footer>
+        <h2 class="lang-en">Contact</h2>
+        <h2 class="lang-th">ติดต่อเรา</h2>
+        <p>Instagram: @Namtan_SurinStyle</p>
+        <p>Email: hello@namtanfashion.com</p>
+        <p>&copy; 2026 Namtan Fashion. Made in Surin.</p>
+    </footer>
+
+    <script>
+        function toggleLanguage() {
+            const enElements = document.querySelectorAll('.lang-en');
+            const thElements = document.querySelectorAll('.lang-th');
+            
+            if (enElements[0].style.display === 'none') {
+                enElements.forEach(el => el.style.display = 'block');
+                thElements.forEach(el => el.style.display = 'none');
+            } else {
+                enElements.forEach(el => el.style.display = 'none');
+                thElements.forEach(el => el.style.display = 'block');
+            }
+        }
+    </script>
+</body>
+</html>
