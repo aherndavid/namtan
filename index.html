@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NAMTAN | Editorial Fashion</title>
+    <title>NAMTAN | Editorial Lookbook</title>
     <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400..700;1,400..700&family=Playfair+Display:wght@900&family=Prompt:wght@200;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
             --black: #000000;
             --white: #ffffff;
+            --thin-border: 1px solid #e5e5e5;
         }
 
         body {
@@ -19,10 +20,10 @@
             color: var(--black);
         }
 
-        /* Top Nav */
+        /* Top Navigation */
         .top-nav {
-            border-bottom: 1px solid #eee;
-            padding: 10px 5%;
+            border-bottom: var(--thin-border);
+            padding: 12px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -40,100 +41,107 @@
         /* Branding */
         header {
             text-align: center;
-            padding: 60px 0;
+            padding: 80px 0;
             margin: 0 5%;
-            border-bottom: 2px solid var(--black);
+            border-bottom: 3px solid var(--black);
         }
 
         .logo {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(3.5rem, 12vw, 8rem);
+            font-size: clamp(3.5rem, 12vw, 8.5rem);
             text-transform: uppercase;
             line-height: 0.8;
             margin: 0;
-            letter-spacing: -2px;
+            letter-spacing: -3px;
         }
 
-        /* Container */
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 40px 5%;
+            padding: 60px 5%;
         }
 
-        /* Hero / About Section */
-        .editorial-hero {
+        /* Cover Story Section */
+        .cover-story {
             display: grid;
-            grid-template-columns: 1.2fr 1fr;
+            grid-template-columns: 1fr 1fr;
             gap: 60px;
-            margin-bottom: 100px;
-            align-items: flex-start;
+            margin-bottom: 120px;
+            align-items: center;
         }
 
-        .hero-image-box img {
+        .cover-image img {
             width: 100%;
             height: auto;
-            max-height: 85vh; /* Prevents the image from being taller than the screen */
-            object-fit: contain; /* Ensures the whole image is visible */
-            display: block;
+            max-height: 90vh;
+            object-fit: contain; /* Keeps your original photo perfect */
         }
 
-        .hero-text h2 {
+        .cover-text h2 {
             font-family: 'Libre Bodoni', serif;
-            font-size: clamp(2.5rem, 4vw, 4.5rem);
-            line-height: 1;
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            line-height: 1.1;
             margin-top: 0;
         }
 
-        /* Trending Grid */
+        /* Lookbook Grid (The 10 Images) */
         .section-header {
             font-family: 'Libre Bodoni', serif;
             text-transform: uppercase;
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             border-bottom: 1px solid #000;
             padding-bottom: 10px;
-            margin-bottom: 40px;
+            margin-bottom: 50px;
+            text-align: center;
         }
 
-        .grid {
+        .lookbook-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
         }
 
-        .card img {
+        .lookbook-item {
+            margin-bottom: 30px;
+            break-inside: avoid;
+        }
+
+        .lookbook-item img {
             width: 100%;
-            aspect-ratio: 3 / 4; /* Keeps all dress images the same professional size */
-            object-fit: cover;
-            margin-bottom: 15px;
+            height: auto;
+            display: block;
+            transition: opacity 0.3s ease;
         }
 
-        .card span {
-            font-size: 10px;
+        .lookbook-item img:hover {
+            opacity: 0.9;
+        }
+
+        .lookbook-item p {
+            font-size: 12px;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            color: #777;
-        }
-
-        .card h3 {
-            font-family: 'Libre Bodoni', serif;
-            font-size: 1.4rem;
-            margin: 10px 0;
+            margin-top: 10px;
+            letter-spacing: 1px;
+            color: #555;
         }
 
         footer {
             background: #000;
             color: #fff;
             text-align: center;
-            padding: 80px 5%;
+            padding: 100px 5%;
             margin-top: 100px;
         }
 
         .lang-th { display: none; }
 
-        @media (max-width: 800px) {
-            .editorial-hero { grid-template-columns: 1fr; }
-            .grid { grid-template-columns: 1fr; }
+        @media (max-width: 900px) {
+            .cover-story { grid-template-columns: 1fr; }
+            .lookbook-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 600px) {
+            .lookbook-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -149,50 +157,42 @@
 
     <header>
         <h1 class="logo">NAMTAN</h1>
-        <p style="letter-spacing: 8px; font-size: 12px; margin-top: 15px;">FASHION & STYLE EDITORIAL</p>
+        <p style="letter-spacing: 10px; font-size: 13px; margin-top: 20px;">FASHION EDITORIAL & LOOKBOOK</p>
     </header>
 
     <div class="container">
-        <section class="editorial-hero">
-            <div class="hero-image-box">
-                <img src="namtan.png" alt="Namtan">
+        <section class="cover-story">
+            <div class="cover-image">
+                <img src="namtan.JPG" alt="Namtan Portrait">
             </div>
-            <div class="hero-text">
-                <span style="text-transform: uppercase; font-size: 12px; letter-spacing: 3px;">The Profile</span>
-                <h2 class="lang-en">Modern Elegance from the Heart of Surin</h2>
-                <h2 class="lang-th">ความสง่างามที่ทันสมัยจากใจเมืองสุรินทร์</h2>
-                <p class="lang-en" style="font-size: 1.1rem; color: #444;">Namtan is a keen fashionista who blends the rich traditions of her home in Surin with the sharp, clean lines of modern high-fashion. Her style is a dialogue between heritage and the future.</p>
-                <p class="lang-th" style="font-size: 1.1rem; color: #444;">น้ำตาลเป็นผู้เชี่ยวชาญด้านแฟชั่นที่ผสมผสานประเพณีอันรุ่มรวยของสุรินทร์บ้านเกิดของเธอ เข้ากับความเฉียบคมและเรียบง่ายของแฟชั่นชั้นสูงสมัยใหม่</p>
+            <div class="cover-text">
+                <span style="text-transform: uppercase; font-size: 11px; letter-spacing: 4px; color: #888;">Volume I</span>
+                <h2 class="lang-en">Redefining Isan Elegance</h2>
+                <h2 class="lang-th">นิยามใหม่ของความสง่างามแห่งอีสาน</h2>
+                <p class="lang-en">Namtan captures the essence of Surin through a modern lens. This collection explores silhouettes, light, and the timeless nature of Thai style.</p>
+                <p class="lang-th">น้ำตาลถ่ายทอดจิตวิญญาณของสุรินทร์ผ่านมุมมองที่ทันสมัย คอลเลกชันนี้สำรวจรูปทรง แสง และธรรมชาติที่ไร้กาลเวลาของสไตล์ไทย</p>
             </div>
         </section>
 
-        <h3 class="section-header">The Latest Styles</h3>
+        <h3 class="section-header">The Lookbook</h3>
 
-        <div class="grid">
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1581044777550-4cfa60707c03?q=80&w=1000&auto=format&fit=crop" alt="Dress 1">
-                <span>The Collection</span>
-                <h3 class="lang-en">Evening Silk Silhouettes</h3>
-                <h3 class="lang-th">ทรวดทรงผ้าไหมยามเย็น</h3>
-            </div>
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?q=80&w=1000&auto=format&fit=crop" alt="Dress 2">
-                <span>Runway</span>
-                <h3 class="lang-en">Pleated Perfection</h3>
-                <h3 class="lang-th">ความสมบูรณ์แบบของผ้าอัดพลีท</h3>
-            </div>
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1515377666659-3671a14418a2?q=80&w=1000&auto=format&fit=crop" alt="Dress 3">
-                <span>Street Style</span>
-                <h3 class="lang-en">Surin Summer Whites</h3>
-                <h3 class="lang-th">ชุดขาวรับฤดูร้อนเมืองสุรินทร์</h3>
-            </div>
+        <div class="lookbook-grid">
+            <div class="lookbook-item"><img src="namtan-1.png" alt="Look 1"><p>Look 01</p></div>
+            <div class="lookbook-item"><img src="namtan-2.png" alt="Look 2"><p>Look 02</p></div>
+            <div class="lookbook-item"><img src="namtan-3.png" alt="Look 3"><p>Look 03</p></div>
+            <div class="lookbook-item"><img src="namtan-4.png" alt="Look 4"><p>Look 04</p></div>
+            <div class="lookbook-item"><img src="namtan-5.png" alt="Look 5"><p>Look 05</p></div>
+            <div class="lookbook-item"><img src="namtan-6.png" alt="Look 6"><p>Look 06</p></div>
+            <div class="lookbook-item"><img src="namtan-7.png" alt="Look 7"><p>Look 07</p></div>
+            <div class="lookbook-item"><img src="namtan-8.png" alt="Look 8"><p>Look 08</p></div>
+            <div class="lookbook-item"><img src="namtan-9.png" alt="Look 9"><p>Look 09</p></div>
+            <div class="lookbook-item"><img src="namtan-10.png" alt="Look 10"><p>Look 10</p></div>
         </div>
     </div>
 
     <footer>
         <p>Instagram: @Namtan_SurinStyle</p>
-        <p style="font-size: 10px; color: #666; margin-top: 20px;">&copy; 2026 NAMTAN FASHION. ALL RIGHTS RESERVED.</p>
+        <p style="font-size: 10px; color: #555; margin-top: 30px; letter-spacing: 2px;">© 2026 NAMTAN FASHION. POWERED BY STYLE.</p>
     </footer>
 
     <script>
