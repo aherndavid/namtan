@@ -111,6 +111,21 @@
             font-size: 1.2rem;
         }
 
+        /* About Section (Updated to include image) */
+        .about-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            align-items: center;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
         /* Footer/Contact */
         footer {
             background: var(--charcoal);
@@ -166,10 +181,17 @@
     </section>
 
     <section id="about" style="background: white;">
-        <h2 class="lang-en">About Namtan</h2>
-        <h2 class="lang-th">เกี่ยวกับน้ำตาล</h2>
-        <p class="lang-en" style="max-width: 700px; font-size: 1.2rem;">Namtan is a fashionista based in Surin, Thailand. She blends local heritage with modern silhouettes to create pieces that tell a story of authentic sophistication.</p>
-        <p class="lang-th" style="max-width: 700px; font-size: 1.2rem;">น้ำตาลคือแฟชั่นนิสต้าจากจังหวัดสุรินทร์ เธอผสมผสานมรดกท้องถิ่นเข้ากับรูปทรงที่ทันสมัย เพื่อสร้างสรรค์ผลงานที่บอกเล่าเรื่องราวของความหรูหราที่แท้จริง</p>
+        <div class="about-section">
+            <div class="about-image">
+                <img src="namtan.png" alt="Namtan, the face of Namtan Fashion" />
+            </div>
+            <div class="about-text">
+                <h2 class="lang-en">About Namtan</h2>
+                <h2 class="lang-th">เกี่ยวกับน้ำตาล</h2>
+                <p class="lang-en">Namtan is a fashionista based in Surin, Thailand. She blends local heritage with modern silhouettes to create pieces that tell a story of authentic sophistication.</p>
+                <p class="lang-th">น้ำตาลคือแฟชั่นนิสต้าจากจังหวัดสุรินทร์ เธอผสมผสานมรดกท้องถิ่นเข้ากับรูปทรงที่ทันสมัย เพื่อสร้างสรรค์ผลงานที่บอกเล่าเรื่องราวของความหรูหราที่แท้จริง</p>
+            </div>
+        </div>
     </section>
 
     <footer>
