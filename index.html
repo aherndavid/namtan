@@ -3,13 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Namtan Fashion | Editorial</title>
+    <title>NAMTAN | Editorial Fashion</title>
     <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400..700;1,400..700&family=Playfair+Display:wght@900&family=Prompt:wght@200;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
             --black: #000000;
             --white: #ffffff;
-            --gray: #f4f4f4;
         }
 
         body {
@@ -18,208 +17,196 @@
             font-family: 'Prompt', sans-serif;
             background-color: var(--white);
             color: var(--black);
-            -webkit-font-smoothing: antialiased;
         }
 
-        /* Top Bar & Language Toggle */
+        /* Top Nav */
         .top-nav {
             border-bottom: 1px solid #eee;
             padding: 10px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-size: 12px;
+            font-size: 11px;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
         }
 
         .lang-toggle {
             cursor: pointer;
-            font-weight: 600;
             text-decoration: underline;
+            font-weight: 600;
         }
 
         /* Branding */
         header {
             text-align: center;
-            padding: 40px 0;
-            border-bottom: 4px solid var(--black);
+            padding: 60px 0;
             margin: 0 5%;
+            border-bottom: 2px solid var(--black);
         }
 
         .logo {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(3rem, 10vw, 6rem);
+            font-size: clamp(3.5rem, 12vw, 8rem);
             text-transform: uppercase;
             line-height: 0.8;
             margin: 0;
+            letter-spacing: -2px;
         }
 
-        .sub-logo {
-            font-size: 14px;
-            letter-spacing: 5px;
-            margin-top: 10px;
-            display: block;
-        }
-
-        /* Editorial Layout */
+        /* Container */
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 40px 5%;
         }
 
-        .section-title {
-            font-family: 'Libre Bodoni', serif;
-            font-size: 24px;
-            border-bottom: 1px solid var(--black);
-            margin-bottom: 30px;
-            padding-bottom: 5px;
-            text-transform: uppercase;
-        }
-
-        /* Hero / Cover Story */
-        .cover-story {
+        /* Hero / About Section */
+        .editorial-hero {
             display: grid;
-            grid-template-columns: 1.5fr 1fr;
-            gap: 40px;
-            margin-bottom: 80px;
-            align-items: center;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 60px;
+            margin-bottom: 100px;
+            align-items: flex-start;
         }
 
-        .cover-image {
-            text-align: center; /* Center the image within its container */
-        }
-
-        .cover-image img {
+        .hero-image-box img {
             width: 100%;
-            height: 700px;
-            /* CRITICAL FIX: object-fit: contain prevents cropping by showing the whole image */
-            object-fit: contain;
-            object-position: center; /* Ensure the image stays centered */
+            height: auto;
+            max-height: 85vh; /* Prevents the image from being taller than the screen */
+            object-fit: contain; /* Ensures the whole image is visible */
+            display: block;
         }
 
-        .cover-content h2 {
+        .hero-text h2 {
             font-family: 'Libre Bodoni', serif;
-            font-size: clamp(2rem, 5vw, 4rem);
-            margin: 20px 0;
-            line-height: 1.1;
+            font-size: clamp(2.5rem, 4vw, 4.5rem);
+            line-height: 1;
+            margin-top: 0;
         }
 
         /* Trending Grid */
-        .trending-grid {
+        .section-header {
+            font-family: 'Libre Bodoni', serif;
+            text-transform: uppercase;
+            font-size: 1.5rem;
+            border-bottom: 1px solid #000;
+            padding-bottom: 10px;
+            margin-bottom: 40px;
+        }
+
+        .grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 30px;
         }
 
-        .article-card img {
+        .card img {
             width: 100%;
-            height: 350px;
-            /* ALSO UPDATED HERE: prevent cropping for these images as well */
-            object-fit: contain;
-            object-position: center;
+            aspect-ratio: 3 / 4; /* Keeps all dress images the same professional size */
+            object-fit: cover;
             margin-bottom: 15px;
         }
 
-        .article-card h3 {
+        .card span {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #777;
+        }
+
+        .card h3 {
             font-family: 'Libre Bodoni', serif;
-            font-size: 20px;
+            font-size: 1.4rem;
             margin: 10px 0;
         }
 
-        .category {
-            font-size: 12px;
-            font-weight: 600;
-            text-transform: uppercase;
-            color: #666;
-        }
-
         footer {
-            margin-top: 100px;
-            padding: 60px 5%;
-            background: var(--black);
-            color: var(--white);
+            background: #000;
+            color: #fff;
             text-align: center;
+            padding: 80px 5%;
+            margin-top: 100px;
         }
 
-        /* Thai/English Visibility */
         .lang-th { display: none; }
 
-        @media (max-width: 900px) {
-            .cover-story { grid-template-columns: 1fr; }
-            .trending-grid { grid-template-columns: 1fr; }
-            .cover-image img { height: 400px; }
+        @media (max-width: 800px) {
+            .editorial-hero { grid-template-columns: 1fr; }
+            .grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
     <div class="top-nav">
-        <div>Surin, Thailand</div>
-        <div class="lang-toggle" onclick="toggleLanguage()">Switch to <span class="lang-en">Thai</span><span class="lang-th">English</span></div>
+        <div>Surin • Thailand</div>
+        <div class="lang-toggle" onclick="toggleLanguage()">
+            <span class="lang-en">อ่านภาษาไทย</span>
+            <span class="lang-th">Read in English</span>
+        </div>
     </div>
 
     <header>
         <h1 class="logo">NAMTAN</h1>
-        <span class="sub-logo">FASHION & EDITORIAL</span>
+        <p style="letter-spacing: 8px; font-size: 12px; margin-top: 15px;">FASHION & STYLE EDITORIAL</p>
     </header>
 
     <div class="container">
-        <section class="cover-story">
-            <div class="cover-image">
+        <section class="editorial-hero">
+            <div class="hero-image-box">
                 <img src="namtan.JPG" alt="Namtan">
             </div>
-            <div class="cover-content">
-                <span class="category">Profile</span>
-                <h2 class="lang-en">The New Face of Surin Modernism</h2>
-                <h2 class="lang-th">โฉมใหม่ของความทันสมัยแห่งสุรินทร์</h2>
-                <p class="lang-en">Namtan is redefining what it means to be a fashionista in Isan. By blending global silhouettes with local heritage, she creates a style that is uniquely her own.</p>
-                <p class="lang-th">น้ำตาลกำลังสร้างนิยามใหม่ให้กับแฟชั่นนิสต้าในภาคอีสาน ด้วยการผสมผสานรูปทรงระดับโลกเข้ากับมรดกท้องถิ่น เธอสร้างสไตล์ที่เป็นเอกลักษณ์เฉพาะตัว</p>
+            <div class="hero-text">
+                <span style="text-transform: uppercase; font-size: 12px; letter-spacing: 3px;">The Profile</span>
+                <h2 class="lang-en">Modern Elegance from the Heart of Surin</h2>
+                <h2 class="lang-th">ความสง่างามที่ทันสมัยจากใจเมืองสุรินทร์</h2>
+                <p class="lang-en" style="font-size: 1.1rem; color: #444;">Namtan is a keen fashionista who blends the rich traditions of her home in Surin with the sharp, clean lines of modern high-fashion. Her style is a dialogue between heritage and the future.</p>
+                <p class="lang-th" style="font-size: 1.1rem; color: #444;">น้ำตาลเป็นผู้เชี่ยวชาญด้านแฟชั่นที่ผสมผสานประเพณีอันรุ่มรวยของสุรินทร์บ้านเกิดของเธอ เข้ากับความเฉียบคมและเรียบง่ายของแฟชั่นชั้นสูงสมัยใหม่</p>
             </div>
         </section>
 
-        <h2 class="section-title">The Latest</h2>
+        <h3 class="section-header">The Latest Styles</h3>
 
-        <div class="trending-grid">
-            <div class="article-card">
-                <img src="https://images.unsplash.com/photo-1596464875323-86311b5e59b3?auto=format&fit=crop&w=500&q=80" alt="Thai Woman in Red Dress">
-                <span class="category">Shopping</span>
-                <h3 class="lang-en">The Crimson Silk Evening Gown</h3>
-                <h3 class="lang-th">ชุดราตรีผ้าไหมสีแดงเข้ม</h3>
+        <div class="grid">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1581044777550-4cfa60707c03?q=80&w=1000&auto=format&fit=crop" alt="Dress 1">
+                <span>The Collection</span>
+                <h3 class="lang-en">Evening Silk Silhouettes</h3>
+                <h3 class="lang-th">ทรวดทรงผ้าไหมยามเย็น</h3>
             </div>
-            <div class="article-card">
-                <img src="https://images.unsplash.com/photo-1601610211756-3c07f4b82d02?auto=format&fit=crop&w=500&q=80" alt="Thai Woman in White Dress">
-                <span class="category">Trend</span>
-                <h3 class="lang-en">White Pleats: Casual Isan Summer</h3>
-                <h3 class="lang-th">จีบสีขาว: ช่วงเวลาฤดูร้อนอีสานที่ผ่อนคลาย</h3>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?q=80&w=1000&auto=format&fit=crop" alt="Dress 2">
+                <span>Runway</span>
+                <h3 class="lang-en">Pleated Perfection</h3>
+                <h3 class="lang-th">ความสมบูรณ์แบบของผ้าอัดพลีท</h3>
             </div>
-            <div class="article-card">
-                <img src="https://images.unsplash.com/photo-1598214304907-955684f4e195?auto=format&fit=crop&w=500&q=80" alt="Thai Woman in Patterned Dress">
-                <span class="category">Accessories</span>
-                <h3 class="lang-en">Patterned Grace & Handcrafted Details</h3>
-                <h3 class="lang-th">ความสง่างามจากลวดลายและรายละเอียดการรังสรรค์ด้วยมือ</h3>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1515377666659-3671a14418a2?q=80&w=1000&auto=format&fit=crop" alt="Dress 3">
+                <span>Street Style</span>
+                <h3 class="lang-en">Surin Summer Whites</h3>
+                <h3 class="lang-th">ชุดขาวรับฤดูร้อนเมืองสุรินทร์</h3>
             </div>
         </div>
     </div>
 
     <footer>
-        <p>&copy; 2026 NAMTAN FASHION. ALL RIGHTS RESERVED.</p>
         <p>Instagram: @Namtan_SurinStyle</p>
+        <p style="font-size: 10px; color: #666; margin-top: 20px;">&copy; 2026 NAMTAN FASHION. ALL RIGHTS RESERVED.</p>
     </footer>
 
     <script>
         function toggleLanguage() {
             const en = document.querySelectorAll('.lang-en');
             const th = document.querySelectorAll('.lang-th');
-            const isThai = en[0].style.display === 'none';
+            const isThaiVisible = th[0].style.display === 'block';
 
-            if (isThai) {
-                en.forEach(el => el.style.display = 'inline-block');
+            if (isThaiVisible) {
+                en.forEach(el => el.style.display = 'block');
                 th.forEach(el => el.style.display = 'none');
             } else {
                 en.forEach(el => el.style.display = 'none');
-                th.forEach(el => el.style.display = 'inline-block');
+                th.forEach(el => el.style.display = 'block');
             }
         }
     </script>
