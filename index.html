@@ -3,216 +3,215 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Namtan Fashion | Surin Style</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Prompt:wght@300;600&display=swap" rel="stylesheet">
+    <title>Namtan Fashion | Editorial</title>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400..700;1,400..700&family=Playfair+Display:wght@900&family=Prompt:wght@200;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --cream: #f9f7f2;
-            --charcoal: #1a1a1a;
-            --accent: #b08d57;
+            --black: #000000;
+            --white: #ffffff;
+            --gray: #f4f4f4;
         }
 
         body {
             margin: 0;
             padding: 0;
             font-family: 'Prompt', sans-serif;
-            background-color: var(--cream);
-            color: var(--charcoal);
-            line-height: 1.6;
+            background-color: var(--white);
+            color: var(--black);
+            -webkit-font-smoothing: antialiased;
         }
 
-        /* Language Toggle Styles */
-        .lang-switch {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 1000;
-            background: white;
-            padding: 10px 20px;
-            border-radius: 30px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            cursor: pointer;
-            font-weight: 600;
-            border: 1px solid var(--charcoal);
-        }
-
-        /* Navigation */
-        nav {
-            padding: 40px 5%;
+        /* Top Bar & Language Toggle */
+        .top-nav {
+            border-bottom: 1px solid #eee;
+            padding: 10px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .lang-toggle {
+            cursor: pointer;
+            font-weight: 600;
+            text-decoration: underline;
+        }
+
+        /* Branding */
+        header {
+            text-align: center;
+            padding: 40px 0;
+            border-bottom: 4px solid var(--black);
+            margin: 0 5%;
         }
 
         .logo {
             font-family: 'Playfair Display', serif;
-            font-size: 2rem;
+            font-size: clamp(3rem, 10vw, 6rem);
             text-transform: uppercase;
-            letter-spacing: 2px;
+            line-height: 0.8;
+            margin: 0;
         }
 
-        /* Sections */
-        section {
-            padding: 80px 10%;
+        .sub-logo {
+            font-size: 14px;
+            letter-spacing: 5px;
+            margin-top: 10px;
+            display: block;
         }
 
-        /* Hero Section */
-        .hero {
-            height: 80vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1600&q=80');
-            background-size: cover;
-            background-position: center;
-            color: white;
+        /* Editorial Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 5%;
         }
 
-        .hero h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 5rem;
-            margin-bottom: 10px;
+        .section-title {
+            font-family: 'Libre Bodoni', serif;
+            font-size: 24px;
+            border-bottom: 1px solid var(--black);
+            margin-bottom: 30px;
+            padding-bottom: 5px;
+            text-transform: uppercase;
         }
 
-        /* Product Grid */
-        .product-grid {
+        /* Hero / Cover Story */
+        .cover-story {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: 1.5fr 1fr;
             gap: 40px;
+            margin-bottom: 80px;
+            align-items: center;
         }
 
-        .product-card {
-            text-align: center;
-            transition: transform 0.3s ease;
-        }
-
-        .product-card:hover {
-            transform: translateY(-10px);
-        }
-
-        .product-img {
+        .cover-image img {
             width: 100%;
-            height: 450px;
-            background-color: #ddd;
+            height: 700px;
+            object-fit: cover;
+        }
+
+        .cover-content h2 {
+            font-family: 'Libre Bodoni', serif;
+            font-size: clamp(2rem, 5vw, 4rem);
+            margin: 20px 0;
+            line-height: 1.1;
+        }
+
+        /* Trending Grid */
+        .trending-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .article-card img {
+            width: 100%;
+            height: 350px;
             object-fit: cover;
             margin-bottom: 15px;
         }
 
-        .product-card h3 {
-            font-size: 1.5rem;
+        .article-card h3 {
+            font-family: 'Libre Bodoni', serif;
+            font-size: 20px;
             margin: 10px 0;
         }
 
-        .price {
-            color: var(--accent);
-            font-weight: bold;
-            font-size: 1.2rem;
+        .category {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: #666;
         }
 
-        /* About Section (Updated to include image) */
-        .about-section {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            align-items: center;
-        }
-
-        .about-image img {
-            width: 100%;
-            height: auto;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-
-        /* Footer/Contact */
         footer {
-            background: var(--charcoal);
-            color: white;
-            padding: 60px 10%;
+            margin-top: 100px;
+            padding: 60px 5%;
+            background: var(--black);
+            color: var(--white);
             text-align: center;
         }
 
-        /* Thai Content Hidden by Default */
+        /* Thai/English Visibility */
         .lang-th { display: none; }
 
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 3rem; }
+        @media (max-width: 900px) {
+            .cover-story { grid-template-columns: 1fr; }
+            .trending-grid { grid-template-columns: 1fr; }
+            .cover-image img { height: 400px; }
         }
     </style>
 </head>
 <body>
 
-    <button class="lang-switch" onclick="toggleLanguage()">TH / EN</button>
+    <div class="top-nav">
+        <div>Surin, Thailand</div>
+        <div class="lang-toggle" onclick="toggleLanguage()">Switch to <span class="lang-en">Thai</span><span class="lang-th">English</span></div>
+    </div>
 
-    <nav>
-        <div class="logo">Namtan Fashion</div>
-    </nav>
+    <header>
+        <h1 class="logo">NAMTAN</h1>
+        <span class="sub-logo">FASHION & EDITORIAL</span>
+    </header>
 
-    <section class="hero">
-        <h1 class="lang-en">Elegance of Surin</h1>
-        <h1 class="lang-th">ความสง่างามแห่งสุรินทร์</h1>
-        <p class="lang-en">Curated style by Namtan</p>
-        <p class="lang-th">สไตล์ที่คัดสรรโดยน้ำตาล</p>
-    </section>
-
-    <section id="shop">
-        <h2 class="lang-en" style="font-size: 3rem; text-align: center;">New Arrivals</h2>
-        <h2 class="lang-th" style="font-size: 3rem; text-align: center;">สินค้ามาใหม่</h2>
-        
-        <div class="product-grid">
-            <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?auto=format&fit=crop&w=500&q=80" alt="Silk" class="product-img">
-                <h3>Surin Silk Blazer</h3>
-                <p class="price">฿4,500</p>
+    <div class="container">
+        <section class="cover-story">
+            <div class="cover-image">
+                <img src="namtan.JPG" alt="Namtan">
             </div>
-            <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1581044777550-4cfa60707c03?auto=format&fit=crop&w=500&q=80" alt="Skirt" class="product-img">
-                <h3>Sunset Skirt</h3>
-                <p class="price">฿2,200</p>
+            <div class="cover-content">
+                <span class="category">Profile</span>
+                <h2 class="lang-en">The New Face of Surin Modernism</h2>
+                <h2 class="lang-th">โฉมใหม่ของความทันสมัยแห่งสุรินทร์</h2>
+                <p class="lang-en">Namtan is redefining what it means to be a fashionista in Isan. By blending global silhouettes with local heritage, she creates a style that is uniquely her own.</p>
+                <p class="lang-th">น้ำตาลกำลังสร้างนิยามใหม่ให้กับแฟชั่นนิสต้าในภาคอีสาน ด้วยการผสมผสานรูปทรงระดับโลกเข้ากับมรดกท้องถิ่น เธอสร้างสไตล์ที่เป็นเอกลักษณ์เฉพาะตัว</p>
             </div>
-            <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1535639818669-c059d2f038e6?auto=format&fit=crop&w=500&q=80" alt="Jewelry" class="product-img">
-                <h3>Gold Hoops</h3>
-                <p class="price">฿850</p>
+        </section>
+
+        <h2 class="section-title">The Latest</h2>
+
+        <div class="trending-grid">
+            <div class="article-card">
+                <img src="https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?auto=format&fit=crop&w=500&q=80" alt="Silk">
+                <span class="category">Shopping</span>
+                <h3 class="lang-en">Surin Silk: The Modern Blazer</h3>
+                <h3 class="lang-th">ผ้าไหมสุรินทร์: เสื้อเบลเซอร์ที่ทันสมัย</h3>
+            </div>
+            <div class="article-card">
+                <img src="https://images.unsplash.com/photo-1581044777550-4cfa60707c03?auto=format&fit=crop&w=500&q=80" alt="Skirt">
+                <span class="category">Trend</span>
+                <h3 class="lang-en">Sunset Pleats for the Isan Summer</h3>
+                <h3 class="lang-th">จีบผ้าสีพระอาทิตย์ตกสำหรับฤดูร้อนอีสาน</h3>
+            </div>
+            <div class="article-card">
+                <img src="https://images.unsplash.com/photo-1535639818669-c059d2f038e6?auto=format&fit=crop&w=500&q=80" alt="Jewelry">
+                <span class="category">Accessories</span>
+                <h3 class="lang-en">Gold Details & Handcrafted Beauty</h3>
+                <h3 class="lang-th">รายละเอียดทองและความงามที่รังสรรค์ด้วยมือ</h3>
             </div>
         </div>
-    </section>
-
-    <section id="about" style="background: white;">
-        <div class="about-section">
-            <div class="about-image">
-                <img src="namtan.png" alt="Namtan, the face of Namtan Fashion" />
-            </div>
-            <div class="about-text">
-                <h2 class="lang-en">About Namtan</h2>
-                <h2 class="lang-th">เกี่ยวกับน้ำตาล</h2>
-                <p class="lang-en">Namtan is a fashionista based in Surin, Thailand. She blends local heritage with modern silhouettes to create pieces that tell a story of authentic sophistication.</p>
-                <p class="lang-th">น้ำตาลคือแฟชั่นนิสต้าจากจังหวัดสุรินทร์ เธอผสมผสานมรดกท้องถิ่นเข้ากับรูปทรงที่ทันสมัย เพื่อสร้างสรรค์ผลงานที่บอกเล่าเรื่องราวของความหรูหราที่แท้จริง</p>
-            </div>
-        </div>
-    </section>
+    </div>
 
     <footer>
-        <h2 class="lang-en">Contact</h2>
-        <h2 class="lang-th">ติดต่อเรา</h2>
+        <p>&copy; 2026 NAMTAN FASHION. ALL RIGHTS RESERVED.</p>
         <p>Instagram: @Namtan_SurinStyle</p>
-        <p>Email: hello@namtanfashion.com</p>
-        <p>&copy; 2026 Namtan Fashion. Made in Surin.</p>
     </footer>
 
     <script>
         function toggleLanguage() {
-            const enElements = document.querySelectorAll('.lang-en');
-            const thElements = document.querySelectorAll('.lang-th');
-            
-            if (enElements[0].style.display === 'none') {
-                enElements.forEach(el => el.style.display = 'block');
-                thElements.forEach(el => el.style.display = 'none');
+            const en = document.querySelectorAll('.lang-en');
+            const th = document.querySelectorAll('.lang-th');
+            const isThai = en[0].style.display === 'none';
+
+            if (isThai) {
+                en.forEach(el => el.style.display = 'inline-block');
+                th.forEach(el => el.style.display = 'none');
             } else {
-                enElements.forEach(el => el.style.display = 'none');
-                thElements.forEach(el => el.style.display = 'block');
+                en.forEach(el => el.style.display = 'none');
+                th.forEach(el => el.style.display = 'inline-block');
             }
         }
     </script>
